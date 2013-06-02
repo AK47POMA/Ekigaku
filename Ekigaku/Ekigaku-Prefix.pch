@@ -12,3 +12,16 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#ifdef DEBUG
+#define __LOG__(_object) \
+NSLog(@"\n"\
+       @"%s \n"\
+       @"%@ (CLASS:%@)\n"\
+       @"%@",\
+       __PRETTY_FUNCTION__,\
+       [NSString stringWithUTF8String:#_object],NSStringFromClass([_object class]),\
+       [_object description]);
+#else
+#define __LOG__(_object)
+#endif
