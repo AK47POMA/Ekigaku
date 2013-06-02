@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TimeTableTodayTableViewController.h
 //  Ekigaku
 //
 //  Created by Nakano Asami on 2013/06/02.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface TimeTableTodayTableViewController : UITableViewController{
+    
+}
 
 @end

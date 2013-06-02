@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C49D9716175B309E0003DAC2 /* TimeTableEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D9715175B309E0003DAC2 /* TimeTableEdit.m */; };
 		C4F3D875175AE2CE0058C7A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F3D874175AE2CE0058C7A5 /* UIKit.framework */; };
 		C4F3D877175AE2CE0058C7A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F3D876175AE2CE0058C7A5 /* Foundation.framework */; };
 		C4F3D879175AE2CE0058C7A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F3D878175AE2CE0058C7A5 /* CoreGraphics.framework */; };
@@ -17,12 +18,13 @@
 		C4F3D889175AE2CF0058C7A5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F3D888175AE2CF0058C7A5 /* Default@2x.png */; };
 		C4F3D88B175AE2CF0058C7A5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F3D88A175AE2CF0058C7A5 /* Default-568h@2x.png */; };
 		C4F3D88E175AE2CF0058C7A5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F3D88C175AE2CF0058C7A5 /* MainStoryboard.storyboard */; };
-		C4F3D891175AE2CF0058C7A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3D890175AE2CF0058C7A5 /* ViewController.m */; };
 		C4F3D899175AE2CF0058C7A5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F3D898175AE2CF0058C7A5 /* SenTestingKit.framework */; };
 		C4F3D89A175AE2CF0058C7A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F3D874175AE2CE0058C7A5 /* UIKit.framework */; };
 		C4F3D89B175AE2CF0058C7A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F3D876175AE2CE0058C7A5 /* Foundation.framework */; };
 		C4F3D8A3175AE2CF0058C7A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4F3D8A1175AE2CF0058C7A5 /* InfoPlist.strings */; };
 		C4F3D8A6175AE2CF0058C7A5 /* EkigakuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3D8A5175AE2CF0058C7A5 /* EkigakuTests.m */; };
+		C4F3D8B7175B10470058C7A5 /* TimeTableTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3D8B6175B10470058C7A5 /* TimeTableTodayViewController.m */; };
+		C4F3D8BC175B13BC0058C7A5 /* TimeTableTodayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3D8BB175B13BC0058C7A5 /* TimeTableTodayTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C49D9714175B309E0003DAC2 /* TimeTableEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableEdit.h; sourceTree = "<group>"; };
+		C49D9715175B309E0003DAC2 /* TimeTableEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableEdit.m; sourceTree = "<group>"; };
 		C4F3D871175AE2CE0058C7A5 /* Ekigaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ekigaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F3D874175AE2CE0058C7A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C4F3D876175AE2CE0058C7A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,14 +54,16 @@
 		C4F3D888175AE2CF0058C7A5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C4F3D88A175AE2CF0058C7A5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C4F3D88D175AE2CF0058C7A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C4F3D88F175AE2CF0058C7A5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C4F3D890175AE2CF0058C7A5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C4F3D897175AE2CF0058C7A5 /* EkigakuTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EkigakuTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F3D898175AE2CF0058C7A5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C4F3D8A0175AE2CF0058C7A5 /* EkigakuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EkigakuTests-Info.plist"; sourceTree = "<group>"; };
 		C4F3D8A2175AE2CF0058C7A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4F3D8A4175AE2CF0058C7A5 /* EkigakuTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EkigakuTests.h; sourceTree = "<group>"; };
 		C4F3D8A5175AE2CF0058C7A5 /* EkigakuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EkigakuTests.m; sourceTree = "<group>"; };
+		C4F3D8B5175B10470058C7A5 /* TimeTableTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableTodayViewController.h; sourceTree = "<group>"; };
+		C4F3D8B6175B10470058C7A5 /* TimeTableTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableTodayViewController.m; sourceTree = "<group>"; };
+		C4F3D8BA175B13BC0058C7A5 /* TimeTableTodayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableTodayTableViewController.h; sourceTree = "<group>"; };
+		C4F3D8BB175B13BC0058C7A5 /* TimeTableTodayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableTodayTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +126,13 @@
 				C4F3D883175AE2CF0058C7A5 /* AppDelegate.h */,
 				C4F3D884175AE2CF0058C7A5 /* AppDelegate.m */,
 				C4F3D88C175AE2CF0058C7A5 /* MainStoryboard.storyboard */,
-				C4F3D88F175AE2CF0058C7A5 /* ViewController.h */,
-				C4F3D890175AE2CF0058C7A5 /* ViewController.m */,
+				C4F3D8B5175B10470058C7A5 /* TimeTableTodayViewController.h */,
+				C4F3D8B6175B10470058C7A5 /* TimeTableTodayViewController.m */,
+				C4F3D8BA175B13BC0058C7A5 /* TimeTableTodayTableViewController.h */,
+				C4F3D8BB175B13BC0058C7A5 /* TimeTableTodayTableViewController.m */,
+				C49D9714175B309E0003DAC2 /* TimeTableEdit.h */,
+				C49D9715175B309E0003DAC2 /* TimeTableEdit.m */,
+				C4F3D8B2175B089C0058C7A5 /* Resouce */,
 				C4F3D87B175AE2CE0058C7A5 /* Supporting Files */,
 			);
 			path = Ekigaku;
@@ -158,6 +169,29 @@
 				C4F3D8A1175AE2CF0058C7A5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4F3D8B2175B089C0058C7A5 /* Resouce */ = {
+			isa = PBXGroup;
+			children = (
+				C4F3D8B4175B09080058C7A5 /* Deta Files */,
+				C4F3D8B3175B08BF0058C7A5 /* Image Files */,
+			);
+			name = Resouce;
+			sourceTree = "<group>";
+		};
+		C4F3D8B3175B08BF0058C7A5 /* Image Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Image Files";
+			sourceTree = "<group>";
+		};
+		C4F3D8B4175B09080058C7A5 /* Deta Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Deta Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +306,9 @@
 			files = (
 				C4F3D881175AE2CF0058C7A5 /* main.m in Sources */,
 				C4F3D885175AE2CF0058C7A5 /* AppDelegate.m in Sources */,
-				C4F3D891175AE2CF0058C7A5 /* ViewController.m in Sources */,
+				C4F3D8B7175B10470058C7A5 /* TimeTableTodayViewController.m in Sources */,
+				C4F3D8BC175B13BC0058C7A5 /* TimeTableTodayTableViewController.m in Sources */,
+				C49D9716175B309E0003DAC2 /* TimeTableEdit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +489,7 @@
 				C4F3D8AB175AE2CF0058C7A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C4F3D8AC175AE2CF0058C7A5 /* Build configuration list for PBXNativeTarget "EkigakuTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +498,7 @@
 				C4F3D8AE175AE2CF0058C7A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
