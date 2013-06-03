@@ -19,9 +19,7 @@
 //1日分の総運行数を返す
 - (int)allLineNumber:(NSString *)goOrCome{
     [self loadTimeTable];
-    
-    NSArray *temp = [self.timeTable objectForKey:goOrCome];
-    return [temp count];
+    return [[self.timeTable objectForKey:goOrCome] count];
 }
 
 @end
