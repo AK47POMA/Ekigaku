@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface TimeTableEdit : NSObject{
+    NSString *timeTabalePlist;
     
 }
 @property NSDictionary *timeTable;
