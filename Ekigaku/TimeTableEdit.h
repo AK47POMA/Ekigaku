@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TimeTableEdit : NSObject
+@interface TimeTableEdit : NSObject{
+    
+}
+@property NSDictionary *timeTable;
+
+- (void)loadTimeTable;
+- (int)allLineNumber:(NSString *)goOrCome;
 
 @end
