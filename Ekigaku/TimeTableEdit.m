@@ -28,8 +28,7 @@
 
 //読み込む時刻表のファイル名をセット
 - (NSString *)timeTablePlistName{
-    int temp = [self judgmentDay];
-    
+    int temp = [self judgmentDay:[NSDate date]];
     if (temp == HOLIDAY) {
         timeTabalePlist = @"timeTable_holiday";//日曜，祝日
     }else{
@@ -45,8 +44,7 @@
 //曜日の種類を判定
 //http://ameblo.jp/yusuke-sharp9th/entry-10907692671.html
 //日曜は1，土曜は7が返る
-- (NSInteger)judgmentDay{
-    NSDate *today = [NSDate date];//時差なし状態
+- (NSInteger)judgmentDay:(NSDate *)today{
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *weekdayComponents =
@@ -54,4 +52,5 @@
     NSInteger weekday = [weekdayComponents weekday];
     return weekday;
 }
+
 @end

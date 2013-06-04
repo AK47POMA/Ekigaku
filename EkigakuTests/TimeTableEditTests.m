@@ -40,4 +40,39 @@
     STAssertEquals(TIMETABLE_WEEKDAY_COMEBACK_SUM, [_timeTableEdit allLineNumber:@"comeBack"], @"1日の総運行数が違います．");
 }
 
+- (void)testJudgmentDay{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    NSDate *date = [NSDate alloc];
+    NSInteger day;
+    
+    date = [formatter dateFromString:@"2013-06-02 00:00:00 +0900"];//Sunday
+    day = [_timeTableEdit judgmentDay:date];
+    STAssertEquals(day, 1, @"曜日の判定が正しくありません");
+    
+    date = [formatter dateFromString:@"2013-06-03 00:00:00 +0900"];//Monday
+    day = [_timeTableEdit judgmentDay:date];
+    STAssertEquals(day, 2, @"曜日の判定が正しくありません");
+    
+    date = [formatter dateFromString:@"2013-06-04 00:00:00 +0900"];//Tuesday
+    day = [_timeTableEdit judgmentDay:date];
+    STAssertEquals(day, 3, @"曜日の判定が正しくありません");
+    
+    date = [formatter dateFromString:@"2013-06-05 00:00:00 +0900"];//Wednesday
+    day = [_timeTableEdit judgmentDay:date];
+    STAssertEquals(day, 4, @"曜日の判定が正しくありません");
+    
+    date = [formatter dateFromString:@"2013-06-06 00:00:00 +0900"];//Tursday
+    day = [_timeTableEdit judgmentDay:date];
+    STAssertEquals(day, 5, @"曜日の判定が正しくありません");
+    
+    date = [formatter dateFromString:@"2013-06-07 00:00:00 +0900"];//Friday
+    day = [_timeTableEdit judgmentDay:date];
+    STAssertEquals(day, 6, @"曜日の判定が正しくありません");
+    
+    date = [formatter dateFromString:@"2013-06-08 00:00:00 +0900"];//Saturday
+    day = [_timeTableEdit judgmentDay:date];
+    STAssertEquals(day, 7, @"曜日の判定が正しくありません");
+}
+
 @end

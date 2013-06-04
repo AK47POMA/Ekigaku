@@ -16,5 +16,6 @@
 
 - (void)loadTimeTable;
 - (int)allLineNumber:(NSString *)goOrCome;
+- (NSInteger)judgmentDay:(NSDate *)today;
 
 @end
