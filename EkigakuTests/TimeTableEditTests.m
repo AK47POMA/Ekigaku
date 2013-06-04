@@ -35,11 +35,6 @@
     STAssertNotNil(_timeTableEdit.timeTable, @"ファイルが読み込めていません");
 }
 
-- (void)testAllLineNumber{
-    STAssertEquals(TIMETABLE_WEEKDAY_GO_SUM, [_timeTableEdit allLineNumber:@"go"], @"1日の総運行数が違います．");
-    STAssertEquals(TIMETABLE_WEEKDAY_COMEBACK_SUM, [_timeTableEdit allLineNumber:@"comeBack"], @"1日の総運行数が違います．");
-}
-
 - (void)testJudgmentDay{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
