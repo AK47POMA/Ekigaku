@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimeTableTodayViewController : UIViewController
+@interface TimeTableTodayViewController : UIViewController{
+    
+    __weak IBOutlet UILabel *monthLabel;
+    __weak IBOutlet UILabel *dayLabel;
+    __weak IBOutlet UILabel *whatdayLabel;
+    __weak IBOutlet UILabel *hourLable;
+    __weak IBOutlet UILabel *minuteLabel;
+}
+- (IBAction)pushUpdateButton:(id)sender;
 
 @end

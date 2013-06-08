@@ -13,6 +13,11 @@
 #define COME_TAG 3
 #define GO_TAG 4
 
+#define FONTTYPE_CELL_TIME @"GD-HighwayGothicJA-OTF"
+#define FONTSIZE_CELL_TIME 24
+#define FONTTYPE_CELL_NUMBER @"Impact"
+#define FONTSIZE_CELL_NUMBER 20
+
 @interface TimeTableTodayTableViewController ()
 
 @end
@@ -70,8 +75,11 @@
     UILabel *comeLabel = (UILabel*)[cell viewWithTag:COME_TAG];
     UILabel *goLabel = (UILabel*)[cell viewWithTag:GO_TAG];
     
+    numberLabel.font  = [UIFont fontWithName:FONTTYPE_CELL_NUMBER size:FONTSIZE_CELL_NUMBER];
     numberLabel.text = [[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:indexPath.row] objectForKey:@"number"];
+    comeLabel.font = [UIFont fontWithName:FONTTYPE_CELL_TIME size:FONTSIZE_CELL_TIME];
     comeLabel.text = [[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:indexPath.row] objectForKey:@"come"];
+    goLabel.font = [UIFont fontWithName:FONTTYPE_CELL_TIME size:FONTSIZE_CELL_TIME];
     goLabel.text = [[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:indexPath.row] objectForKey:@"go"];
     return cell;
 }
