@@ -8,8 +8,15 @@
 
 #import "TimeTableEditTests.h"
 
-#define TIMETABLE_WEEKDAY_GO_SUM 48
-#define TIMETABLE_WEEKDAY_COMEBACK_SUM 46
+#define SUNDAY 1
+#define MONDAY 2
+#define TUESDAY 3
+#define WEDNESDAY 4
+#define THURSDAY 5
+#define FRIDAY 6
+#define SATURDAY 7
+
+#define HOLIDAY 1
 
 @implementation TimeTableEditTests
 
@@ -43,31 +50,137 @@
     
     date = [formatter dateFromString:@"2013-06-02 00:00:00 +0900"];//Sunday
     day = [_timeTableEdit judgmentDay:date];
-    STAssertEquals(day, 1, @"曜日の判定が正しくありません");
+    STAssertEquals(day, SUNDAY, @"曜日の判定が正しくありません");
     
     date = [formatter dateFromString:@"2013-06-03 00:00:00 +0900"];//Monday
     day = [_timeTableEdit judgmentDay:date];
-    STAssertEquals(day, 2, @"曜日の判定が正しくありません");
+    STAssertEquals(day, MONDAY, @"曜日の判定が正しくありません");
     
     date = [formatter dateFromString:@"2013-06-04 00:00:00 +0900"];//Tuesday
     day = [_timeTableEdit judgmentDay:date];
-    STAssertEquals(day, 3, @"曜日の判定が正しくありません");
+    STAssertEquals(day, TUESDAY, @"曜日の判定が正しくありません");
     
     date = [formatter dateFromString:@"2013-06-05 00:00:00 +0900"];//Wednesday
     day = [_timeTableEdit judgmentDay:date];
-    STAssertEquals(day, 4, @"曜日の判定が正しくありません");
+    STAssertEquals(day, WEDNESDAY, @"曜日の判定が正しくありません");
     
     date = [formatter dateFromString:@"2013-06-06 00:00:00 +0900"];//Tursday
     day = [_timeTableEdit judgmentDay:date];
-    STAssertEquals(day, 5, @"曜日の判定が正しくありません");
+    STAssertEquals(day, THURSDAY, @"曜日の判定が正しくありません");
     
     date = [formatter dateFromString:@"2013-06-07 00:00:00 +0900"];//Friday
     day = [_timeTableEdit judgmentDay:date];
-    STAssertEquals(day, 6, @"曜日の判定が正しくありません");
+    STAssertEquals(day, FRIDAY, @"曜日の判定が正しくありません");
     
     date = [formatter dateFromString:@"2013-06-08 00:00:00 +0900"];//Saturday
     day = [_timeTableEdit judgmentDay:date];
-    STAssertEquals(day, 7, @"曜日の判定が正しくありません");
+    STAssertEquals(day, SATURDAY, @"曜日の判定が正しくありません");
+}
+
+- (void)testJadgmentHoliday{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    NSDate *date = [NSDate alloc];
+    NSInteger day;
+    
+    //普通の日
+    date = [formatter dateFromString:@"2013-01-02 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, 0, @"判定が正しくありません");
+    
+    //元日
+    //1月1日
+    date = [formatter dateFromString:@"2013-01-01 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //成人の日
+    //1月の第2月曜日
+    date = [formatter dateFromString:@"2013-01-14 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //建国記念の日
+    //政令で定める日=2月11日
+    date = [formatter dateFromString:@"2013-02-11 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //春分の日
+    //春分日=変動
+    date = [formatter dateFromString:@"2013-03-20 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //昭和の日
+    //4月29日
+    date = [formatter dateFromString:@"2013-04-29 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //憲法記念日
+	//5月3日
+    date = [formatter dateFromString:@"2013-05-03 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //みどりの日
+    //5月4日
+    date = [formatter dateFromString:@"2013-05-04 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //こどもの日
+	//5月5日
+    date = [formatter dateFromString:@"2013-05-05 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    //振替
+    date = [formatter dateFromString:@"2013-05-06 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //海の日
+    //7月の第3月曜日
+    date = [formatter dateFromString:@"2013-07-15 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //敬老の日
+	//9月の第3月曜日
+    date = [formatter dateFromString:@"2013-09-16 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //秋分の日
+	//秋分日=変動
+    date = [formatter dateFromString:@"2013-09-23 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //体育の日
+	//10月の第2月曜日
+    date = [formatter dateFromString:@"2013-10-14 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //文化の日
+    //11月3日
+    date = [formatter dateFromString:@"2013-11-03 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //勤労感謝の日
+    //11月23日
+    date = [formatter dateFromString:@"2013-11-23 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
+    
+    //天皇誕生日
+    //12月23日
+    date = [formatter dateFromString:@"2013-12-23 00:00:00 +0900"];
+    day = [_timeTableEdit judgmentHoliday:date];
+    STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
 }
 
 @end

@@ -28,14 +28,19 @@
 
 //読み込む時刻表のファイル名をセット
 - (NSString *)timeTablePlistName{
-    int temp = [self judgmentDay:[NSDate date]];
+    int temp;
+    temp = [self judgmentHoliday:[NSDate date]];
     if (temp == HOLIDAY) {
-        timeTabalePlist = @"timeTable_holiday";//日曜，祝日
+        timeTabalePlist = @"timeTable_holiday";//祝日
     }else{
-        if (temp == SATURDAY) {
-            timeTabalePlist = @"timeTable_saturday";//土曜
+        temp = [self judgmentDay:[NSDate date]];
+        if (temp == HOLIDAY) {
         }else{
-            timeTabalePlist = @"timeTable_weekday";// 平日
+            if (temp == SATURDAY) {
+                timeTabalePlist = @"timeTable_saturday";//土曜
+            }else{
+                timeTabalePlist = @"timeTable_weekday";// 平日
+            }
         }
     }
     return timeTabalePlist;
@@ -51,6 +56,22 @@
     [gregorian components:(NSDayCalendarUnit | NSWeekdayCalendarUnit) fromDate:today];
     NSInteger weekday = [weekdayComponents weekday];
     return weekday;
+}
+
+//祝日の判定
+//http://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html
+//祝日は1が返る．それ以外は0が返る．
+//上手な方法を考える
+- (NSInteger)judgmentHoliday:(NSDate *)today{
+    NSString *day;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    day = [formatter stringFromDate:today];
+    
+    if ([day isEqual: @"2013-01-01"] || [day isEqual: @"2013-01-14"] || [day isEqual: @"2013-02-11"] || [day isEqual: @"2013-03-20"] || [day isEqual: @"2013-04-29"] || [day isEqual: @"2013-05-03"] || [day isEqual: @"2013-05-04"] || [day isEqual: @"2013-05-05"] || [day isEqual: @"2013-07-15"] || [day isEqual: @"2013-09-16"] || [day isEqual: @"2013-09-23"] || [day isEqual: @"2013-10-14"] || [day isEqual: @"2013-11-03"] || [day isEqual: @"2013-11-23"] || [day isEqual: @"2013-12-23"] || [day isEqual: @"2013-05-06"] || [day isEqual: @"2013-11-04"]) {
+        return HOLIDAY;
+    }
+    return 0;
 }
 
 @end
