@@ -13,8 +13,7 @@
     __weak IBOutlet UILabel *monthLabel;
     __weak IBOutlet UILabel *dayLabel;
     __weak IBOutlet UILabel *whatdayLabel;
-    __weak IBOutlet UILabel *hourLable;
-    __weak IBOutlet UILabel *minuteLabel;
+    __weak IBOutlet UILabel *timeLabel;
 }
 - (IBAction)pushUpdateButton:(id)sender;
 

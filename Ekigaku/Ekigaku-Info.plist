@@ -26,6 +26,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Haettenschweiler-Regular.ttf</string>
 		<string>Impact.ttf</string>
 		<string>GDhwGoJA-OTF111b.otf</string>
 	</array>
