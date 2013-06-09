@@ -35,6 +35,7 @@
     }else{
         temp = [self judgmentDay:[NSDate date]];
         if (temp == HOLIDAY) {
+            timeTabalePlist = @"timeTable_holiday";//日曜
         }else{
             if (temp == SATURDAY) {
                 timeTabalePlist = @"timeTable_saturday";//土曜
