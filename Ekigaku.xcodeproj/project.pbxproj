@@ -43,6 +43,9 @@
 		C4F3D8A6175AE2CF0058C7A5 /* EkigakuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3D8A5175AE2CF0058C7A5 /* EkigakuTests.m */; };
 		C4F3D8B7175B10470058C7A5 /* TimeTableTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3D8B6175B10470058C7A5 /* TimeTableTodayViewController.m */; };
 		C4F3D8BC175B13BC0058C7A5 /* TimeTableTodayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3D8BB175B13BC0058C7A5 /* TimeTableTodayTableViewController.m */; };
+		C4FDF71117646B8500CBFEFB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4FDF71017646B8500CBFEFB /* QuartzCore.framework */; };
+		C4FDF71717646BC600CBFEFB /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4FDF71417646BC600CBFEFB /* SVProgressHUD.bundle */; };
+		C4FDF71817646BC600CBFEFB /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDF71617646BC600CBFEFB /* SVProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,10 @@
 		C4F3D8B6175B10470058C7A5 /* TimeTableTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableTodayViewController.m; sourceTree = "<group>"; };
 		C4F3D8BA175B13BC0058C7A5 /* TimeTableTodayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableTodayTableViewController.h; sourceTree = "<group>"; };
 		C4F3D8BB175B13BC0058C7A5 /* TimeTableTodayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TimeTableTodayTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C4FDF71017646B8500CBFEFB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C4FDF71417646BC600CBFEFB /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		C4FDF71517646BC600CBFEFB /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		C4FDF71617646BC600CBFEFB /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FDF71117646B8500CBFEFB /* QuartzCore.framework in Frameworks */,
 				C4F3D875175AE2CE0058C7A5 /* UIKit.framework in Frameworks */,
 				C4F3D877175AE2CE0058C7A5 /* Foundation.framework in Frameworks */,
 				C4F3D879175AE2CE0058C7A5 /* CoreGraphics.framework in Frameworks */,
@@ -157,6 +165,7 @@
 		C4F3D868175AE2CE0058C7A5 = {
 			isa = PBXGroup;
 			children = (
+				C4FDF71017646B8500CBFEFB /* QuartzCore.framework */,
 				C4F3D87A175AE2CE0058C7A5 /* Ekigaku */,
 				C4F3D89E175AE2CF0058C7A5 /* EkigakuTests */,
 				C4F3D873175AE2CE0058C7A5 /* Frameworks */,
@@ -237,6 +246,7 @@
 		C4F3D8B2175B089C0058C7A5 /* Resouce */ = {
 			isa = PBXGroup;
 			children = (
+				C4FDF71217646BA400CBFEFB /* Libraries */,
 				C4EDB7D517630BB10073731E /* Font Files */,
 				C4F3D8B4175B09080058C7A5 /* Deta Files */,
 				C4F3D8B3175B08BF0058C7A5 /* Image Files */,
@@ -268,6 +278,24 @@
 				C49D9719175B32C20003DAC2 /* timeTable_weekday.plist */,
 			);
 			name = "Deta Files";
+			sourceTree = "<group>";
+		};
+		C4FDF71217646BA400CBFEFB /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				C4FDF71317646BC600CBFEFB /* SVProgressHUD */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		C4FDF71317646BC600CBFEFB /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				C4FDF71417646BC600CBFEFB /* SVProgressHUD.bundle */,
+				C4FDF71517646BC600CBFEFB /* SVProgressHUD.h */,
+				C4FDF71617646BC600CBFEFB /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +389,7 @@
 				C4EDB7DC17631C870073731E /* GDhwGoJA-OTF111b.otf in Resources */,
 				C454DE0717632A66005AEE3B /* Haettenschweiler-Regular.ttf in Resources */,
 				C454DE0917632FCB005AEE3B /* header_time.png in Resources */,
+				C4FDF71717646BC600CBFEFB /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +431,7 @@
 				C49D9716175B309E0003DAC2 /* TimeTableEdit.m in Sources */,
 				C4964A34175C449A005761BE /* GoTimeTableTodayTableViewController.m in Sources */,
 				C4964A37175C4646005761BE /* ComeHomeTimeTableTodayTableViewController.m in Sources */,
+				C4FDF71817646BC600CBFEFB /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

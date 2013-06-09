@@ -9,6 +9,8 @@
 #import "TimeTableTodayViewController.h"
 #import "TimeTableEdit.h"
 
+#import "SVProgressHUD.h"
+
 #define FONTTYPE_HEADER @"Impact"
 #define FONTSIZE_MONTH 48
 #define FONTSIZE_WHATDAY 40
@@ -54,7 +56,9 @@
 }
 
 - (IBAction)pushUpdateButton:(id)sender {
+    [SVProgressHUD showWithStatus:@"Loading..."];
     [self update];
+    [SVProgressHUD dismiss]; // 消す
 }
 
 - (void)update{
