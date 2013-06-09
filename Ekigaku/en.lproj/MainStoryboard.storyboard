@@ -12,11 +12,6 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Ekigaku.png" translatesAutoresizingMaskIntoConstraints="NO" id="O4x-Ha-ZNi">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="568" id="si6-vh-V91"/>
-                                </constraints>
-                            </imageView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yO-E0-M2C">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -113,13 +108,11 @@
                         <constraints>
                             <constraint firstItem="bIf-9M-mNA" firstAttribute="centerX" secondItem="wqf-6f-eFf" secondAttribute="centerX" type="default" id="0JB-TR-dte"/>
                             <constraint firstItem="wqf-6f-eFf" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="1yr-Nw-Owq"/>
-                            <constraint firstItem="O4x-Ha-ZNi" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="4ux-xg-7JG"/>
                             <constraint firstItem="Td5-aT-FhS" firstAttribute="trailing" secondItem="tK4-GT-gvN" secondAttribute="trailing" type="default" id="51P-2z-QT2"/>
                             <constraint firstItem="4yO-E0-M2C" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="5ya-im-ZtY"/>
                             <constraint firstItem="PPP-Fn-8nb" firstAttribute="centerX" secondItem="h5K-OT-QPc" secondAttribute="centerX" type="default" id="7IO-HW-RdV"/>
                             <constraint firstItem="uUj-d8-N4O" firstAttribute="bottom" secondItem="Td5-aT-FhS" secondAttribute="bottom" type="default" id="93w-Bg-dS5"/>
                             <constraint firstItem="Td5-aT-FhS" firstAttribute="trailing" secondItem="uUj-d8-N4O" secondAttribute="trailing" type="default" id="CWj-Wt-Ca6"/>
-                            <constraint firstItem="O4x-Ha-ZNi" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="DNw-ne-xdU"/>
                             <constraint firstAttribute="trailing" secondItem="hJM-Vx-9PG" secondAttribute="trailing" constant="58" id="FT6-1W-vT2"/>
                             <constraint firstItem="bIf-9M-mNA" firstAttribute="bottom" secondItem="tK4-GT-gvN" secondAttribute="bottom" type="default" id="Hcf-hd-x5C"/>
                             <constraint firstItem="h5K-OT-QPc" firstAttribute="leading" secondItem="bIf-9M-mNA" secondAttribute="leading" type="default" id="IRL-yc-f4m"/>
@@ -128,7 +121,6 @@
                             <constraint firstItem="wqf-6f-eFf" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="VBq-8Q-CQQ"/>
                             <constraint firstItem="hJM-Vx-9PG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="62" id="VvJ-lI-V4F"/>
                             <constraint firstItem="IEg-fM-25K" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="80" id="cyW-QO-F5r"/>
-                            <constraint firstItem="O4x-Ha-ZNi" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="eCK-eH-2Ao"/>
                             <constraint firstItem="HeX-mC-FPu" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="h7B-cA-jeg"/>
                             <constraint firstItem="HeX-mC-FPu" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="hIX-rT-1nU"/>
                             <constraint firstItem="uUj-d8-N4O" firstAttribute="top" secondItem="3" secondAttribute="top" constant="56" id="jwm-6f-ji8"/>
@@ -467,7 +459,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Ekigaku.png" width="640" height="1136"/>
         <image name="footer_background.png" width="640" height="72"/>
         <image name="header_background.png" width="640" height="350"/>
         <image name="header_comeback.png" width="569" height="80"/>

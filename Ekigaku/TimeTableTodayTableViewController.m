@@ -27,7 +27,6 @@
 #define IMAGEFILE_NONE @"tile_gray.png"
 
 @interface TimeTableTodayTableViewController (){
-    NSInteger rowCount;
     NSDate *today;
 }
 
@@ -56,12 +55,11 @@
     
     _timeTableEdit = [[TimeTableEdit alloc] init];
     goOrComeBack = [self setgoOrComeBack];
-    rowCount = 0;
     today = [NSDate date];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:rowCount inSection:0];
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self setRowCount] inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 
 }
@@ -102,14 +100,12 @@
     goLabel.text = [[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:indexPath.row] objectForKey:@"go"];
     
     //色の設定
-    //表示セルの判定
     UIImageView *cellBackgroundImage = (UIImageView*)[cell viewWithTag:BACKGROUND_TAG];
     int timeNow = [_timeTableEdit convertedToMinutesFromDay:today];
     int timeCell = [_timeTableEdit convertedToMinutesFromDay:[_timeTableEdit converdedToDateFromString:comeLabel.text]];
-    
     int margin = timeCell - timeNow;
     
-    if (margin < 0) {
+    if (margin < 0) {//差が負のとき
         cellBackgroundImage.image = [UIImage imageNamed:IMAGEFILE_NONE];
     }else if (WARNING_MARGIN < margin){
         cellBackgroundImage.image = [UIImage imageNamed:IMAGEFILE_NOMAL];
@@ -118,6 +114,29 @@
     }
     
     return cell;
+}
+
+- (NSInteger)setRowCount{
+    int temp;
+    int rowCount = 0;
+    
+    int timeNow = [_timeTableEdit convertedToMinutesFromDay:today];
+    int timeCell;
+    int margin;
+    
+    for (temp = 0; temp < [_timeTableEdit allLineNumber:goOrComeBack]; temp++) {
+        timeCell = [_timeTableEdit convertedToMinutesFromDay:[_timeTableEdit converdedToDateFromString:[[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:temp] objectForKey:@"come"]]];
+        margin = timeCell - timeNow;
+        if (margin < 0) {//差が負のとき
+            rowCount++;
+        }else{
+            break;
+        }
+    }
+    if (temp == rowCount) {//最後のセルの読み込みエラーを防ぐ
+        rowCount = rowCount -1;
+    }
+    return rowCount;
 }
 
 - (NSString *)setgoOrComeBack{

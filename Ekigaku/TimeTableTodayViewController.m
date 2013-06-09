@@ -49,6 +49,10 @@
     [self update];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
