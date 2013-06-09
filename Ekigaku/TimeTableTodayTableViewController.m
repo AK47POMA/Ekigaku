@@ -8,6 +8,8 @@
 
 #import "TimeTableTodayTableViewController.h"
 
+#import "SVProgressHUD.h"
+
 #define SECTIONNUMBER 1
 #define NUMBER_TAG 2
 #define COME_TAG 3
@@ -53,6 +55,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [SVProgressHUD show]; // ぐるぐる
     _timeTableEdit = [[TimeTableEdit alloc] init];
     goOrComeBack = [self setgoOrComeBack];
     today = [NSDate date];
@@ -61,7 +64,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self setRowCount] inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-
+    [SVProgressHUD dismiss]; // ぐるぐる消す
 }
 
 - (void)didReceiveMemoryWarning
