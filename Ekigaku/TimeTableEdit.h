@@ -18,4 +18,8 @@
 - (int)allLineNumber:(NSString *)goOrCome;
 - (NSInteger)judgmentDay:(NSDate *)today;
 - (NSInteger)judgmentHoliday:(NSDate *)today;
+- (NSInteger)hour:(NSDate *)today;
+- (NSInteger)minute:(NSDate *)today;
+- (NSInteger)convertedToMinutesFromDay:(NSDate *)day;
+- (NSDate *)converdedToDateFromString:(NSString *)string;
 @end

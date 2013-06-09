@@ -13,7 +13,7 @@
 #define FONTSIZE_MONTH 48
 #define FONTSIZE_WHATDAY 40
 #define FONTTYPE_DAY @"Haettenschweiler"
-#define FONTSIZE_DAY 110
+#define FONTSIZE_DAY 112
 #define FONTTYPE_TIME @"GD-HighwayGothicJA-OTF"
 #define FONTSIZE_TIME 24
 

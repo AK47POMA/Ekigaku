@@ -183,4 +183,49 @@
     STAssertEquals(day, HOLIDAY, @"判定が正しくありません");
 }
 
+- (void)testHour{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    NSDate *date = [NSDate alloc];
+    NSInteger hour;
+    
+    date = [formatter dateFromString:@"2013-06-10 12:34:56 +0900"];
+    hour = [_timeTableEdit hour:date];
+    STAssertEquals(hour, 12, @"値が正しくありません");
+}
+
+- (void)testMinute{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    NSDate *date = [NSDate alloc];
+    NSInteger minute;
+    
+    date = [formatter dateFromString:@"2013-06-10 12:34:56 +0900"];
+    minute = [_timeTableEdit minute:date];
+    STAssertEquals(minute, 34, @"値が正しくありません");
+}
+
+- (void)testConvertedToMinutesFromDay{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    NSDate *date = [NSDate alloc];
+    NSInteger minute;
+    
+    date = [formatter dateFromString:@"2013-06-10 12:34:56 +0900"];
+    minute = [_timeTableEdit convertedToMinutesFromDay:date];
+    STAssertEquals(minute, 754, @"値が正しくありません");
+}
+
+- (void)testConverdedToDateFromString{
+    NSDate *time;
+    NSString *string = @"12:34";
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm"];
+    NSDate *date = [NSDate alloc];
+    date = [formatter dateFromString:@"12:34"];
+    time = [_timeTableEdit converdedToDateFromString:string];
+    STAssertEqualObjects(date, time, @"値が正しくありません");
+}
+
 @end

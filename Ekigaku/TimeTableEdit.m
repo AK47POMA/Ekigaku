@@ -75,4 +75,35 @@
     return 0;
 }
 
+//NSDate型を時間(HH)の要素だけにし，NSIntegerで返す
+- (NSInteger)hour:(NSDate *)today{
+    NSString *temp;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH"];
+    temp = [formatter stringFromDate:today];
+    return [temp intValue];
+}
+
+//NSDate型を分(mm)の要素だけにし，NSIntegerで返す
+- (NSInteger)minute:(NSDate *)today{
+    NSString *temp;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"mm"];
+    temp = [formatter stringFromDate:today];
+    return [temp intValue];
+}
+
+//NSDate型の時分を分に変換する
+- (NSInteger)convertedToMinutesFromDay:(NSDate *)day{
+    return [self hour:day] * 60 + [self minute:day];
+}
+
+//@"HH:mm"なNSString型をNSDate型に変換する
+- (NSDate *)converdedToDateFromString:(NSString *)string{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm"];
+    NSDate* formatterDate = [formatter dateFromString:string];
+    return formatterDate;
+}
+
 @end

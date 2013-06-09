@@ -12,13 +12,24 @@
 #define NUMBER_TAG 2
 #define COME_TAG 3
 #define GO_TAG 4
+#define BACKGROUND_TAG 5
+
+#define CELL @"lineInfomation"
 
 #define FONTTYPE_CELL_TIME @"GD-HighwayGothicJA-OTF"
 #define FONTSIZE_CELL_TIME 24
 #define FONTTYPE_CELL_NUMBER @"Impact"
 #define FONTSIZE_CELL_NUMBER 20
 
-@interface TimeTableTodayTableViewController ()
+#define WARNING_MARGIN 10 //あと10分以内に出発予定のバス
+#define IMAGEFILE_NOMAL @"tile_blue.png"
+#define IMAGEFILE_WARNING @"tile_red.png"
+#define IMAGEFILE_NONE @"tile_gray.png"
+
+@interface TimeTableTodayTableViewController (){
+    NSInteger rowCount;
+    NSDate *today;
+}
 
 @end
 
@@ -45,6 +56,14 @@
     
     _timeTableEdit = [[TimeTableEdit alloc] init];
     goOrComeBack = [self setgoOrComeBack];
+    rowCount = 0;
+    today = [NSDate date];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:rowCount inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,6 +100,23 @@
     comeLabel.text = [[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:indexPath.row] objectForKey:@"come"];
     goLabel.font = [UIFont fontWithName:FONTTYPE_CELL_TIME size:FONTSIZE_CELL_TIME];
     goLabel.text = [[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:indexPath.row] objectForKey:@"go"];
+    
+    //色の設定
+    //表示セルの判定
+    UIImageView *cellBackgroundImage = (UIImageView*)[cell viewWithTag:BACKGROUND_TAG];
+    int timeNow = [_timeTableEdit convertedToMinutesFromDay:today];
+    int timeCell = [_timeTableEdit convertedToMinutesFromDay:[_timeTableEdit converdedToDateFromString:comeLabel.text]];
+    
+    int margin = timeCell - timeNow;
+    
+    if (margin < 0) {
+        cellBackgroundImage.image = [UIImage imageNamed:IMAGEFILE_NONE];
+    }else if (WARNING_MARGIN < margin){
+        cellBackgroundImage.image = [UIImage imageNamed:IMAGEFILE_NOMAL];
+    }else{
+        cellBackgroundImage.image = [UIImage imageNamed:IMAGEFILE_WARNING];
+    }
+    
     return cell;
 }
 
