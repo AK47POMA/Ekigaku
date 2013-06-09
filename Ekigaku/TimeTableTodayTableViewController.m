@@ -59,6 +59,7 @@
     _timeTableEdit = [[TimeTableEdit alloc] init];
     goOrComeBack = [self setgoOrComeBack];
     today = [NSDate date];
+    self.tableView.separatorColor = [UIColor clearColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
