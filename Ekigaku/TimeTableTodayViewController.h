@@ -10,10 +10,10 @@
 
 @interface TimeTableTodayViewController : UIViewController{
     
-    __weak IBOutlet UILabel *dateLabel;
-    __weak IBOutlet UILabel *hourLabel;
-    __weak IBOutlet UILabel *minuteLabel;
+    __weak IBOutlet UILabel *monthLabel;
+    __weak IBOutlet UILabel *dayLabel;
     __weak IBOutlet UILabel *whatdayLabel;
+    __weak IBOutlet UILabel *timeLabel;
 }
 - (IBAction)pushUpdateButton:(id)sender;
 

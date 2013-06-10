@@ -12,12 +12,12 @@
 #import "SVProgressHUD.h"
 
 #define FONTTYPE_HEADER @"Impact"
-#define FONTSIZE_WHATDAY 38
-#define FONTSIZE_HOUR 48
-#define FONTTYPE_MINUTE @"Haettenschweiler"
-#define FONTSIZE_MINUTE 110
-#define FONTTYPE_DATE @"GD-HighwayGothicJA-OTF"
-#define FONTSIZE_DATE 24
+#define FONTSIZE_MONTH 48
+#define FONTSIZE_WHATDAY 40
+#define FONTTYPE_DAY @"Haettenschweiler"
+#define FONTSIZE_DAY 112
+#define FONTTYPE_TIME @"GD-HighwayGothicJA-OTF"
+#define FONTSIZE_TIME 24
 
 #define SUNDAY 1
 #define MONDAY 2
@@ -60,30 +60,33 @@
 }
 
 - (IBAction)pushUpdateButton:(id)sender {
-    [SVProgressHUD show]; // ぐるぐる
+    [SVProgressHUD showWithStatus:@"Loading..."];
     [self update];
     [SVProgressHUD dismiss]; // 消す
 }
 
 - (void)update{
     NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    //dateLabelの更新
-    formatter.dateFormat = @"MM/dd";
-    dateLabel.text = [formatter stringFromDate:date];
-    dateLabel.font = [UIFont fontWithName:FONTTYPE_DATE size:FONTSIZE_DATE];
     
-    //hourLabelの更新
-    formatter.dateFormat = @"HH:";
-    hourLabel.text = [formatter stringFromDate:date];
-    hourLabel.font = [UIFont fontWithName:FONTTYPE_HEADER size:FONTSIZE_HOUR];
+    //monthLabelの更新
+    NSDateFormatter *month = [[NSDateFormatter alloc] init];
+    month.dateFormat = @"MM";
+    monthLabel.text = [month stringFromDate:date];
+    monthLabel.font = [UIFont fontWithName:FONTTYPE_HEADER size:FONTSIZE_MONTH];
     
-    //minuteLabelの更新
-    formatter.dateFormat = @"mm";
-    minuteLabel.text = [formatter stringFromDate:date];
-    minuteLabel.font = [UIFont fontWithName:FONTTYPE_MINUTE size:FONTSIZE_MINUTE];
+    //dayLabelの更新
+    NSDateFormatter *day = [[NSDateFormatter alloc] init];
+    day.dateFormat = @"dd";
+    dayLabel.text = [day stringFromDate:date];
+    dayLabel.font = [UIFont fontWithName:FONTTYPE_DAY size:FONTSIZE_DAY];
     
-    //whatdayLabelの更新
+    //timeLabelの更新
+    NSDateFormatter *time = [[NSDateFormatter alloc] init];
+    time.dateFormat = @"HH:mm";
+    timeLabel.text = [time stringFromDate:date];
+    timeLabel.font = [UIFont fontWithName:FONTTYPE_TIME size:FONTSIZE_TIME];
+    
+    //timeLabelの更新
     TimeTableEdit *_timeTableEdit;
     _timeTableEdit = [[TimeTableEdit alloc] init];
     NSString *temp;
