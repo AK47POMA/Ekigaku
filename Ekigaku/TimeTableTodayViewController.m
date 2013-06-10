@@ -8,8 +8,11 @@
 
 #import "TimeTableTodayViewController.h"
 #import "TimeTableEdit.h"
+#import "TimeTableTodayTableViewController.h"
 
 #import "SVProgressHUD.h"
+
+#define TIMETABLE_SEGUE @"timeTable"
 
 #define FONTTYPE_HEADER @"Impact"
 #define FONTSIZE_MONTH 48
@@ -27,7 +30,9 @@
 #define FRIDAY 6
 #define SATURDAY 7
 
-@interface TimeTableTodayViewController ()
+@interface TimeTableTodayViewController (){
+    NSDate *date;
+}
 
 @end
 
@@ -60,13 +65,25 @@
 }
 
 - (IBAction)pushUpdateButton:(id)sender {
-    [SVProgressHUD showWithStatus:@"Loading..."];
+    [SVProgressHUD show];
     [self update];
+    [[[self.childViewControllers objectAtIndex:0] tableView] reloadData];
+    [[self.childViewControllers objectAtIndex:0] auotScrolling];
+    
     [SVProgressHUD dismiss]; // 消す
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Segueの特定
+    if ( [[segue identifier] isEqualToString:TIMETABLE_SEGUE] ) {
+        TimeTableTodayTableViewController *timeTableTodayTableViewController = [segue destinationViewController];
+        timeTableTodayTableViewController.date = date;
+    }
+}
+
 - (void)update{
-    NSDate *date = [NSDate date];
+    date = [NSDate date];
     
     //monthLabelの更新
     NSDateFormatter *month = [[NSDateFormatter alloc] init];

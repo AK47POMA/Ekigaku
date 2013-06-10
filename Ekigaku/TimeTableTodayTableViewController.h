@@ -15,4 +15,8 @@
     NSString *goOrComeBack;
 }
 
+- (void)auotScrolling;
+
+@property NSDate *date;
+
 @end

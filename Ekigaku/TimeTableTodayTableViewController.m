@@ -7,6 +7,7 @@
 //
 
 #import "TimeTableTodayTableViewController.h"
+#import "TimeTableTodayViewController.h"
 
 #import "SVProgressHUD.h"
 
@@ -29,13 +30,12 @@
 #define IMAGEFILE_NONE @"tile_gray.png"
 
 @interface TimeTableTodayTableViewController (){
-    NSDate *today;
 }
 
 @end
 
 @implementation TimeTableTodayTableViewController
-
+@synthesize date;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -58,13 +58,11 @@
     [SVProgressHUD show]; // ぐるぐる
     _timeTableEdit = [[TimeTableEdit alloc] init];
     goOrComeBack = [self setgoOrComeBack];
-    today = [NSDate date];
     self.tableView.separatorColor = [UIColor clearColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self setRowCount] inSection:0];
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    [self auotScrolling];
     [SVProgressHUD dismiss]; // ぐるぐる消す
 }
 
@@ -75,6 +73,7 @@
 }
 
 #pragma mark - Table view data source
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -89,6 +88,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    date = [NSDate date];
     static NSString *CellIdentifier = @"lineInfomation";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -105,7 +105,7 @@
     
     //色の設定
     UIImageView *cellBackgroundImage = (UIImageView*)[cell viewWithTag:BACKGROUND_TAG];
-    int timeNow = [_timeTableEdit convertedToMinutesFromDay:today];
+    int timeNow = [_timeTableEdit convertedToMinutesFromDay:date];
     int timeCell = [_timeTableEdit convertedToMinutesFromDay:[_timeTableEdit converdedToDateFromString:comeLabel.text]];
     int margin = timeCell - timeNow;
     
@@ -124,7 +124,7 @@
     int temp;
     int rowCount = 0;
     
-    int timeNow = [_timeTableEdit convertedToMinutesFromDay:today];
+    int timeNow = [_timeTableEdit convertedToMinutesFromDay:date];
     int timeCell;
     int margin;
     
@@ -141,6 +141,11 @@
         rowCount = rowCount -1;
     }
     return rowCount;
+}
+
+- (void)auotScrolling{
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self setRowCount] inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (NSString *)setgoOrComeBack{
