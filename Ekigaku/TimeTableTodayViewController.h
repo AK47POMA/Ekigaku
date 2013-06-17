@@ -17,4 +17,6 @@
 }
 - (IBAction)pushUpdateButton:(id)sender;
 
+- (IBAction)pushInformationButton:(id)sender;
+
 @end

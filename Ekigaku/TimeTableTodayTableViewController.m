@@ -17,7 +17,7 @@
 #define GO_TAG 4
 #define BACKGROUND_TAG 5
 
-#define CELL @"lineInfomation"
+#define CELL @"lineInformation"
 
 #define FONTTYPE_CELL_TIME @"GD-HighwayGothicJA-OTF"
 #define FONTSIZE_CELL_TIME 24
@@ -89,7 +89,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     date = [NSDate date];
-    static NSString *CellIdentifier = @"lineInfomation";
+    static NSString *CellIdentifier = @"lineInformation";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     UILabel *numberLabel = (UILabel*)[cell viewWithTag:NUMBER_TAG];
@@ -98,10 +98,13 @@
     
     numberLabel.font  = [UIFont fontWithName:FONTTYPE_CELL_NUMBER size:FONTSIZE_CELL_NUMBER];
     numberLabel.text = [[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:indexPath.row] objectForKey:@"number"];
+    numberLabel.textColor = [UIColor whiteColor];
     comeLabel.font = [UIFont fontWithName:FONTTYPE_CELL_TIME size:FONTSIZE_CELL_TIME];
     comeLabel.text = [[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:indexPath.row] objectForKey:@"come"];
+    comeLabel.textColor = [UIColor whiteColor];
     goLabel.font = [UIFont fontWithName:FONTTYPE_CELL_TIME size:FONTSIZE_CELL_TIME];
     goLabel.text = [[[_timeTableEdit.timeTable objectForKey:goOrComeBack] objectAtIndex:indexPath.row] objectForKey:@"go"];
+    goLabel.textColor = [UIColor whiteColor];
     
     //色の設定
     UIImageView *cellBackgroundImage = (UIImageView*)[cell viewWithTag:BACKGROUND_TAG];

@@ -73,6 +73,29 @@
     [SVProgressHUD dismiss]; // 消す
 }
 
+- (IBAction)pushInformationButton:(id)sender {
+    CGRect mainScreen = [[UIScreen mainScreen] bounds];
+    
+    UIImage *informationBackgroundImage = [UIImage imageNamed:@"black_50.png"];  // ボタンにする画像を生成する
+    UIButton *informationBackgroundButton = [[UIButton alloc]
+                      initWithFrame:CGRectMake(0, 0, mainScreen.size.width, mainScreen.size.height)];  // ボタンのサイズを指定する
+    [informationBackgroundButton setBackgroundImage:informationBackgroundImage forState:UIControlStateNormal];  // 画像をセットする
+    // ボタンが押された時にhogeメソッドを呼び出す
+    [informationBackgroundButton addTarget:self
+            action:@selector(pushInformationBackgroundButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:informationBackgroundButton];
+    
+    UIViewController *informationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"informationView"];
+    informationViewController.view.frame = CGRectMake(15, mainScreen.size.height - 230 - 65, 295, 230);
+    [self.view addSubview:informationViewController.view];
+}
+
+-(void)pushInformationBackgroundButton:(UIButton*)button{
+    int temp = [self.view.subviews count];
+    [[self.view.subviews objectAtIndex:temp - 1] removeFromSuperview];
+    [[self.view.subviews objectAtIndex:temp - 2] removeFromSuperview];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     //Segueの特定
@@ -90,18 +113,21 @@
     month.dateFormat = @"MM";
     monthLabel.text = [month stringFromDate:date];
     monthLabel.font = [UIFont fontWithName:FONTTYPE_HEADER size:FONTSIZE_MONTH];
+    monthLabel.textColor = [UIColor whiteColor];
     
     //dayLabelの更新
     NSDateFormatter *day = [[NSDateFormatter alloc] init];
     day.dateFormat = @"dd";
     dayLabel.text = [day stringFromDate:date];
     dayLabel.font = [UIFont fontWithName:FONTTYPE_DAY size:FONTSIZE_DAY];
+    dayLabel.textColor = [UIColor whiteColor];
     
     //timeLabelの更新
     NSDateFormatter *time = [[NSDateFormatter alloc] init];
     time.dateFormat = @"HH:mm";
     timeLabel.text = [time stringFromDate:date];
     timeLabel.font = [UIFont fontWithName:FONTTYPE_TIME size:FONTSIZE_TIME];
+    timeLabel.textColor = [UIColor whiteColor];
     
     //timeLabelの更新
     TimeTableEdit *_timeTableEdit;
@@ -135,5 +161,6 @@
     }
     whatdayLabel.text = temp;
     whatdayLabel.font = [UIFont fontWithName:FONTTYPE_HEADER size:FONTSIZE_WHATDAY];
+    whatdayLabel.textColor = [UIColor whiteColor];
 }
 @end

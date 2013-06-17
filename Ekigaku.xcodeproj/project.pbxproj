@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C412B2921766E1510062A1D9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C412B2911766E1510062A1D9 /* Media.xcassets */; };
+		C41ABC0D176AC833003BD971 /* black_50.png in Resources */ = {isa = PBXBuildFile; fileRef = C41ABC0C176AC833003BD971 /* black_50.png */; };
+		C41ABC0F176ACC12003BD971 /* infomation.png in Resources */ = {isa = PBXBuildFile; fileRef = C41ABC0E176ACC12003BD971 /* infomation.png */; };
+		C41ABC15176B1D10003BD971 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41ABC14176B1D10003BD971 /* InformationViewController.m */; };
 		C454DE0717632A66005AEE3B /* Haettenschweiler-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C454DE0517632A02005AEE3B /* Haettenschweiler-Regular.ttf */; };
 		C46FF6B11761F6C800AC7F16 /* footer_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C46FF6B01761F6C800AC7F16 /* footer_background.png */; };
 		C46FF6B917623E8500AC7F16 /* header_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C46FF6B317623E8400AC7F16 /* header_background.png */; };
@@ -60,6 +64,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C412B2911766E1510062A1D9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = Ekigaku/Media.xcassets; sourceTree = "<group>"; };
+		C41ABC0C176AC833003BD971 /* black_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_50.png; sourceTree = "<group>"; };
+		C41ABC0E176ACC12003BD971 /* infomation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infomation.png; sourceTree = "<group>"; };
+		C41ABC13176B1D10003BD971 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
+		C41ABC14176B1D10003BD971 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		C454DE0517632A02005AEE3B /* Haettenschweiler-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Haettenschweiler-Regular.ttf"; sourceTree = "<group>"; };
 		C46FF6B01761F6C800AC7F16 /* footer_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footer_background.png; sourceTree = "<group>"; };
 		C46FF6B317623E8400AC7F16 /* header_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header_background.png; sourceTree = "<group>"; };
@@ -150,6 +159,8 @@
 				C4964A33175C449A005761BE /* GoTimeTableTodayTableViewController.m */,
 				C4964A35175C4646005761BE /* ComeHomeTimeTableTodayTableViewController.h */,
 				C4964A36175C4646005761BE /* ComeHomeTimeTableTodayTableViewController.m */,
+				C41ABC13176B1D10003BD971 /* InformationViewController.h */,
+				C41ABC14176B1D10003BD971 /* InformationViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -167,6 +178,7 @@
 		C4F3D868175AE2CE0058C7A5 = {
 			isa = PBXGroup;
 			children = (
+				C412B2911766E1510062A1D9 /* Media.xcassets */,
 				C4FDF71B176481EC00CBFEFB /* icon.png */,
 				C4FDF7191764817B00CBFEFB /* icon@2x.png */,
 				C4F3D87A175AE2CE0058C7A5 /* Ekigaku */,
@@ -260,6 +272,8 @@
 		C4F3D8B3175B08BF0058C7A5 /* Image Files */ = {
 			isa = PBXGroup;
 			children = (
+				C41ABC0E176ACC12003BD971 /* infomation.png */,
+				C41ABC0C176AC833003BD971 /* black_50.png */,
 				C46FF6B01761F6C800AC7F16 /* footer_background.png */,
 				C46FF6B317623E8400AC7F16 /* header_background.png */,
 				C4EDB7D11762FA660073731E /* header_comeback.png */,
@@ -383,6 +397,7 @@
 				C46FF6B11761F6C800AC7F16 /* footer_background.png in Resources */,
 				C46FF6B917623E8500AC7F16 /* header_background.png in Resources */,
 				C46FF6BB17623E8500AC7F16 /* tile_blue.png in Resources */,
+				C412B2921766E1510062A1D9 /* Media.xcassets in Resources */,
 				C46FF6BC17623E8500AC7F16 /* tile_gray.png in Resources */,
 				C46FF6BD17623E8500AC7F16 /* tile_red.png in Resources */,
 				C4EDB7D31762FA660073731E /* header_comeback.png in Resources */,
@@ -394,6 +409,8 @@
 				C4FDF71A1764817C00CBFEFB /* icon@2x.png in Resources */,
 				C4FDF71C176481EC00CBFEFB /* icon.png in Resources */,
 				C4D1F56217656F87002AF7E3 /* header_time.png in Resources */,
+				C41ABC0D176AC833003BD971 /* black_50.png in Resources */,
+				C41ABC0F176ACC12003BD971 /* infomation.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +453,7 @@
 				C4964A34175C449A005761BE /* GoTimeTableTodayTableViewController.m in Sources */,
 				C4964A37175C4646005761BE /* ComeHomeTimeTableTodayTableViewController.m in Sources */,
 				C4FDF71817646BC600CBFEFB /* SVProgressHUD.m in Sources */,
+				C41ABC15176B1D10003BD971 /* InformationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +563,8 @@
 		C4F3D8AA175AE2CF0058C7A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ekigaku/Ekigaku-Prefix.pch";
 				INFOPLIST_FILE = "Ekigaku/Ekigaku-Info.plist";
@@ -556,6 +576,8 @@
 		C4F3D8AB175AE2CF0058C7A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ekigaku/Ekigaku-Prefix.pch";
 				INFOPLIST_FILE = "Ekigaku/Ekigaku-Info.plist";
